@@ -15,7 +15,6 @@ beta.append(-12345+28413j)
 # Funções
 
 def soma(u, v):
-  # é só isso?? to achando que n é mas ok
 
   w = u + v
   return w
@@ -34,15 +33,15 @@ def produto(beta, u):
 def verifica_soma(u, v):
   
 
-  w = soma(u,v) # se for só issso eu vou surtar
-                # era só isso e eu surtei
+  w = soma(u,v)
+               
   # se w ainda for de V retorna true
   return isinstance(w, np.ndarray) #verifica se é um array(vetor)
 
 def verifica_produto(beta, u):
   #mesma lógica do verificar soma
 
-  w = produto(beta,u) #é só isso, eu sei
+  w = produto(beta,u)
 
 
   return isinstance(w, np.ndarray)#verifica se w ainda é de V (se ss, retorna true)
