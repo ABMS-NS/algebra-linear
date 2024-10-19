@@ -47,9 +47,14 @@ def combinacao(vetores, vetor_alvo):
     n = len(vetor_alvo)  # Tamanho do vetor
 
     try:
-        # Resolve o sistema linear A * c = v, onde A são os vetores e v é o vetor alvo
-        coef = gauss(vetores.T, vetor_alvo)  # Vetores como colunas
-        return True, coef
+        # Resolver o sistema linear
+        coef = gauss(np.copy(vetores), np.copy(vetor_alvo))
+        
+        # Verificar se a solução é válida
+        erro = np.linalg.norm(vetores @ coef - vetor_alvo)
+        if erro < 1e-10:
+            return True, coef
+        return False, []
     except Exception as e:
         return False, []
 
