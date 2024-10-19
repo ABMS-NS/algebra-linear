@@ -15,40 +15,37 @@ beta.append(-12345+28413j)
 # Funções
 
 def soma(u, v):
-  # Implemente a soma dos vetores aqui
-  w = np.ones(3, dtype='complex128') # alterar?
+  # é só isso?? to achando que n é mas ok
 
+  w = u + v
   return w
 
 
 def produto(beta, u):
-  # Implemente o produto aqui
-  w = np.ones(3, dtype='complex128') # alterar?
+ # precisa de um módulo (no beta) e dps da multiplicação
+  beta_mod = np.abs(beta)
+
+ # agora é a multiplicação
+  w = beta_mod * u
 
   return w
 
 
 def verifica_soma(u, v):
-  """
-  Verifica se o conjunto é fechado sob a operação de soma.
+  
 
-  @param u: Um vetor de V
-         v: Um vetor de V
-  @return: bool: (True,  "Vetores obedecem à soma.") se os vetores forem fechados sob soma,
-                 (False, "Vetores não obedecem à soma.") caso contrário.
-  """
-  return False
+  w = soma(u,v) # se for só issso eu vou surtar
+                # era só isso e eu surtei
+  # se w ainda for de V retorna true
+  return isinstance(w, np.ndarray) #verifica se é um array(vetor)
 
 def verifica_produto(beta, u):
-  """
-  Verifica se o conjunto é fechado sob a operação de produto.
+  #mesma lógica do verificar soma
 
-  @param beta: Um valor escalar complexo
-         u: Um vetor de V
-  @return: bool: (True,  "Vetores obedecem ao produto.") se os vetores forem fechados sob soma,
-                 (False, "Vetores não obedecem ao produto.") caso contrário.
-  """
-  return False
+  w = produto(beta,u) #é só isso, eu sei
+
+
+  return isinstance(w, np.ndarray)#verifica se w ainda é de V (se ss, retorna true)
 
 print('Testando fechamento da soma:')
 for i in range(len(v)):
@@ -62,7 +59,7 @@ for i in range(len(beta)):
     print(verifica_produto(beta[i], v[k]), ' => ', beta[i], ' , ', v[k])
 
 # proponha o vetor nulo
-nulo = np.ones(3, dtype='complex128') # alterar?
+nulo = np.zeros(3, dtype='complex128') # nem a pau que foi tão fácil assim
 
 def verifica_nulo(v):
   # Já implementado, não se preocupar
