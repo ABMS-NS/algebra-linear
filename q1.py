@@ -72,7 +72,8 @@ for i in range(len(v)):
 
 # proponha o vetor inverso
 def inverso(v):
-  w = np.ones(3, dtype='complex128') # alterar?
+  #precisa ser o v negativo
+  w = -v
 
   return w
 
@@ -94,7 +95,12 @@ def verifica_comutatividade(u, v):
   @return: bool: True se os vetores forem comutativos,
                  False caso contrário.
   """
-  return False
+
+  #w e s são o "inverso" uma da outra
+  w = u + v
+  s = v + u
+
+  return np.all(w == s)
 
 print('--------------------------------------')
 print('Testando comutatividade:')
@@ -112,7 +118,9 @@ def verifica_associatividade(u, v, w):
   @return: bool: True se os vetores seguirem a regra da associação,
                  False caso contrário.
   """
-  return False
+  s = u + (v + w)
+  k = w + (v + u)
+  return np.all(s == k)
 
 
 print('--------------------------------------')
@@ -132,7 +140,12 @@ def verifica_distributividade_1(beta, u, v):
   @return: bool: True se os vetores seguirem a regra da distributividade,
                  False caso contrário.
   """
-  return False
+
+  w = beta * (u + v)
+  s = beta * u + beta * v
+
+
+  return np.all(w == s)
 
 print('--------------------------------------')
 print('Testando distributividade 1:')
@@ -151,7 +164,10 @@ def verifica_distributividade_2(beta, gamma, u):
   @return: bool: True se os vetores seguirem a regra da distributividade,
                  False caso contrário.
   """
-  return False
+  w = (beta + gamma) * u
+  s = beta * u + gamma * u
+
+  return np.all(w == s)
 
 print('--------------------------------------')
 print('Testando distributividade 2:')
@@ -171,7 +187,11 @@ def verifica_distributividade_3(beta, gamma, u):
   @return: bool: True se os vetores seguirem a regra da distributividade,
                  False caso contrário.
   """
-  return False
+  w = beta * (gamma * u)
+  s = (beta * gamma) * u
+
+
+  return np.all(w == s)
 
 print('--------------------------------------')
 print('Testando distributividade 3:')
@@ -188,7 +208,8 @@ def verifica_escalar_unitario(u):
   @return: bool: True se os vetores seguirem a regra da distributividade,
                  False caso contrário.
   """
-  return False
+
+  return np.all(1 * u == u)
 
 print('--------------------------------------')
 print('Testando o axioma do escalar unitário:')
