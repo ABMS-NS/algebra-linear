@@ -25,7 +25,7 @@ result = audio1 + audio2
 # 2 * audio1 para multiplicação de escalar
 # result = np.zeros_like(audio1)
 # result = audio1 + (-audio1) para inversão de fase
-
+    
 result_time = np.linspace(0., len(result) / rate1, len(result))
 
 # Plot do audio1
